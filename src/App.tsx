@@ -96,6 +96,7 @@ const handleKeyDown = useCallback((e: KeyboardEvent) => {
 
   return (
     <div className="app">
+      V6
       {CAROUSELS.map((carousel, index) => (
         <MovieRow
           key={carousel.id}
