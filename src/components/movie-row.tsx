@@ -1,5 +1,5 @@
 import useEmblaCarousel from 'embla-carousel-react'
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { cn } from '../lib/utils'
 import { MovieItem } from './movie-item'
 
@@ -29,7 +29,7 @@ type Props = {
   focusedIndex: number
 }
 
-export function MovieRow({
+export const MovieRow = React.memo(function MovieRow({
   title,
   items,
   isActive,
@@ -40,7 +40,12 @@ export function MovieRow({
     containScroll: 'trimSnaps',
     slidesToScroll: 1,
     loop: false,
-    dragFree: true,
+    duration: 20,
+    dragFree: false,
+    watchDrag: false,
+    watchResize: false,
+    watchSlides: false,
+    watchFocus: false,
     skipSnaps: false,
   })
 
@@ -76,4 +81,4 @@ export function MovieRow({
       </div>
     </section>
   )
-}
+})
