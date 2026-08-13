@@ -105,14 +105,16 @@ img {
   height: 288px;
   border-radius: 16px;
   overflow: hidden;
-  transition: transform 200ms ease, box-shadow 200ms ease;
+  transform: translate3d(0, 0, 0) scale(1);
+  backface-visibility: hidden;
+  transition: transform 140ms ease-out, box-shadow 140ms linear;
   padding: 8px;
 }
 
 .movie-item__poster--selected {
   background-color: transparent;
-  transform: scale(1.05);
-  box-shadow: 0 0 0 5px #ffffff;
+  transform: translate3d(0, 0, 0) scale(1.04);
+  box-shadow: 0 0 0 4px #ffffff;
   
 }
 
@@ -121,6 +123,8 @@ img {
   height: 100%;
   object-fit: cover;
   border-radius: 16px;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
   /* transition: padding 500ms ease, border-radius 500ms ease; */
 }
 
@@ -133,7 +137,7 @@ img {
   text-align: center;
   color: #ffffff;
   opacity: 0.7;
-  transition: opacity 200ms ease;
+  transition: opacity 140ms linear;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
