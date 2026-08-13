@@ -18,10 +18,7 @@ export default defineConfig({
   ],
 
   build: {
-    outDir: "smarttvapp",
     emptyOutDir: false,
-    // build.target é definido pelo próprio plugin-legacy a partir de `targets`.
-    // Declará-lo aqui só emite "plugin-legacy overrode 'build.target'".
     cssTarget: "chrome38",
     minify: "terser",
     sourcemap: true,
