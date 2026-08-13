@@ -51,30 +51,27 @@ export function MovieRow({
   }, [focusedIndex, emblaApi])
 
   return (
-    <section>
+    <section className='movie-row'>
       <h2
-        className={cn( 'mb-2 text-xl px-6 font-semibold uppercase text-start', isActive ? 'text-white' : 'text-gray-500')}
+        className={cn('movie-row__title', isActive && 'movie-row__title--active')}
       >
         {title}
       </h2>
 
-
-      <div className={cn( isActive && 'ring-4 ring-transparent rounded-xl flex' )}>
-        <div
-          ref={emblaRef}
-          className='embla__viewport'
-        >
-          <div className='embla__container'>
-            {items.map((movie, index) => (
-              <div key={movie.id} className='embla__slide'>
-                <MovieItem
-                  poster={movie.poster}
-                  title={movie.title}
-                  selected={isActive && focusedIndex === index}
-                />
-              </div>
-            ))}
-          </div>
+      <div
+        ref={emblaRef}
+        className='embla__viewport'
+      >
+        <div className='embla__container'>
+          {items.map((movie, index) => (
+            <div key={movie.id} className='embla__slide'>
+              <MovieItem
+                poster={movie.poster}
+                title={movie.title}
+                selected={isActive && focusedIndex === index}
+              />
+            </div>
+          ))}
         </div>
       </div>
     </section>

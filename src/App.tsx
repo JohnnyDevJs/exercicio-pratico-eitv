@@ -95,7 +95,7 @@ const handleKeyDown = useCallback((e: KeyboardEvent) => {
 
 
   return (
-    <div className="space-y-8 p-8 bg-[#200042] min-h-screen">
+    <div className="app">
       {CAROUSELS.map((carousel, index) => (
         <MovieRow
           key={carousel.id}

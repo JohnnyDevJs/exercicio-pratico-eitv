@@ -13,14 +13,11 @@ export const MovieItem = React.memo(function MovieItem({
   selected,
 }: MovieItemProps) {
   return (
-    <div className="min-w-50">
-     
+    <div className="movie-item">
       <div
         className={cn(
-          'h-72 rounded-2xl overflow-hidden transition-all duration-200',
-          selected
-            ? 'scale-110 ring-4 ring-white'
-            : 'scale-100 bg-gray-700'
+          'movie-item__poster',
+          selected && 'movie-item__poster--selected'
         )}
       >
         <img
@@ -28,14 +25,14 @@ export const MovieItem = React.memo(function MovieItem({
           alt={title}
           loading="lazy"
           decoding="async"
-          className={cn("size-full transition-all duration-500  object-cover", selected ? 'p-2 rounded-2xl' : '')}
+          className="movie-item__img"
         />
       </div>
 
       <p
         className={cn(
-          'mt-6 text-sm font-semibold text-white transition-opacity truncate whitespace-nowrap overflow-hidden',
-          selected ? 'opacity-100' : 'opacity-70'
+          'movie-item__title',
+          selected && 'movie-item__title--selected'
         )}
       >
         {title}
