@@ -10,6 +10,14 @@ type FocusState = {
   col: number
 }
 
+// O Chromium 38 da webOS 3.0 não implementa KeyboardEvent.key (Chrome 51+),
+// então a navegação precisa ser feita por keyCode.
+const KEY_LEFT = 37
+const KEY_UP = 38
+const KEY_RIGHT = 39
+const KEY_DOWN = 40
+const KEY_ENTER = 13
+
 
 function App() {
 
@@ -19,11 +27,20 @@ function App() {
   })
 
 const handleKeyDown = useCallback((e: KeyboardEvent) => {
+    switch (e.keyCode) {
+      case KEY_UP:
+      case KEY_DOWN:
+      case KEY_LEFT:
+      case KEY_RIGHT:
+        e.preventDefault()
+        break
+    }
+
     setFocus((prev) => {
       const maxRow = CAROUSELS.length - 1
 
-      switch (e.key) {
-        case 'ArrowUp': {
+      switch (e.keyCode) {
+        case KEY_UP: {
           const nextRow = Math.max(prev.row - 1, 0)
           return {
             row: nextRow,
@@ -31,7 +48,7 @@ const handleKeyDown = useCallback((e: KeyboardEvent) => {
           }
         }
 
-        case 'ArrowDown': {
+        case KEY_DOWN: {
           const nextRow = Math.min(prev.row + 1, maxRow)
           return {
             row: nextRow,
@@ -39,14 +56,14 @@ const handleKeyDown = useCallback((e: KeyboardEvent) => {
           }
         }
 
-        case 'ArrowLeft': {
+        case KEY_LEFT: {
           return {
             ...prev,
             col: Math.max(prev.col - 1, 0),
           }
         }
 
-        case 'ArrowRight': {
+        case KEY_RIGHT: {
           const maxCol =
             CAROUSELS[prev.row].items.length - 1
 
@@ -56,7 +73,7 @@ const handleKeyDown = useCallback((e: KeyboardEvent) => {
           }
         }
 
-        case 'Enter': {
+        case KEY_ENTER: {
           const selected =
             CAROUSELS[prev.row].items[prev.col]
 

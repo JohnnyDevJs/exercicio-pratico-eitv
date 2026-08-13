@@ -18,19 +18,34 @@ body {
   --slide-spacing: 1rem;
   --slide-size: 70%;
 }
+/* Layout do carrossel em CSS puro. O Chromium 38 da webOS 3.0 não suporta
+   `gap` em flexbox (Chrome 84+) nem custom properties (Chrome 49+), então o
+   espaçamento sai por margin-right e todos os valores são literais.
+   Reproduz o antigo `flex gap-6 p-6`: slides de 200px, 24px entre eles. */
+/* O padding fica no viewport, não no container: com `align: start` o Embla
+   translada o container para encostar o slide 1 na borda, o que comeria um
+   padding aplicado nele. `overflow: hidden` recorta na padding box, então a
+   folga aqui ainda deixa o ring de foco (scale-110) aparecer inteiro. */
 .embla__viewport {
   overflow: hidden;
+  padding: 24px;
 }
 .embla__container {
   display: flex;
   touch-action: pan-y pinch-zoom;
-  margin-left: calc(var(--slide-spacing) * -1);
+  will-change: transform;
 }
 .embla__slide {
+  position: relative;
   transform: translate3d(0, 0, 0);
-  flex: 0 0 var(--slide-size);
+  flex: 0 0 auto;
+  width: 200px;
   min-width: 0;
-  padding-left: var(--slide-spacing);
+  margin-right: 24px;
+  box-sizing: border-box;
+}
+.embla__slide:last-child {
+  margin-right: 0;
 }
 .embla__slide__number {
   box-shadow: inset 0 0 0 0.2rem var(--detail-medium-contrast);

@@ -36,8 +36,12 @@ export function MovieRow({
   focusedIndex,
 }: Props) {
   const [emblaRef, emblaApi] = useEmblaCarousel({
-    dragFree: true,
+    align: 'start',
     containScroll: 'trimSnaps',
+    slidesToScroll: 1,
+    loop: false,
+    dragFree: false,
+    skipSnaps: false,
   })
 
   useEffect(() => {
@@ -58,16 +62,17 @@ export function MovieRow({
       <div className={cn( isActive && 'ring-4 ring-transparent rounded-xl flex' )}>
         <div
           ref={emblaRef}
-          className='overflow-hidden rounded-xl'
+          className='embla__viewport'
         >
-          <div className='flex gap-6 p-6'>
+          <div className='embla__container'>
             {items.map((movie, index) => (
-              <MovieItem
-                key={movie.id}
-                poster={movie.poster}
-                title={movie.title}
-                selected={isActive && focusedIndex === index}
-              />
+              <div key={movie.id} className='embla__slide'>
+                <MovieItem
+                  poster={movie.poster}
+                  title={movie.title}
+                  selected={isActive && focusedIndex === index}
+                />
+              </div>
             ))}
           </div>
         </div>
