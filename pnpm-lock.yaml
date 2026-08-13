@@ -14,9 +14,12 @@ importers:
       clsx:
         specifier: 2.1.1
         version: 2.1.1
+      embla-carousel:
+        specifier: 3.0.0
+        version: 3.0.0
       embla-carousel-react:
-        specifier: 7.1.0
-        version: 7.1.0(react@19.2.3)
+        specifier: 2.0.1
+        version: 2.0.1(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       prop-types:
         specifier: 15.8.1
         version: 15.8.1
@@ -808,13 +811,14 @@ packages:
   electron-to-chromium@1.5.267:
     resolution: {integrity: sha512-0Drusm6MVRXSOJpGbaSVgcQsuB4hEkMpHXaVstcPmhu5LIedxs1xNK/nIxmQIU/RPC0+1/o0AVZfBTkTNJOdUw==}
 
-  embla-carousel-react@7.1.0:
-    resolution: {integrity: sha512-tbYRPRZSDNd2QLNqYDcArAakGIxtUbhS7tkP0dGXktXHGgcX+3ji3VrOUTOftBiujZrMV8kRxtrRUe/1soloIQ==}
+  embla-carousel-react@2.0.1:
+    resolution: {integrity: sha512-m942GlvaP3kGtXSgbvimM1cV3+OJTr0/ynsDDY6EMkMjZBJyiipRA13zClR2hRlNCXb3M4SSjMqPHVatM5vHcg==}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.1 || ^18.0.0
+      react: ^16.13.1
+      react-dom: ^16.13.1
 
-  embla-carousel@7.1.0:
-    resolution: {integrity: sha512-Bh8Pa8NWzgugLkf8sAGexQlBCNDFaej5BXiKgQdRJ1mUC9NWBrw9Z23YVPVGkguWoz5LMjZXXFVGCobl3UPt/Q==}
+  embla-carousel@3.0.0:
+    resolution: {integrity: sha512-ULNXzPPHJtzVyzaV6oFvv8qKLU1idwwQ1frPm5+WIcNjguDhCh6BqLEcSs5lZktOZ04vUtkqL6dgASCLamHGew==}
 
   enhanced-resolve@5.18.4:
     resolution: {integrity: sha512-LgQMM4WXU3QI+SYgEc2liRgznaD5ojbmY3sb8LxyguVkIg5FxdpTkvk72te2R38/TGKxH634oLxXRGY6d7AP+Q==}
@@ -1985,12 +1989,13 @@ snapshots:
 
   electron-to-chromium@1.5.267: {}
 
-  embla-carousel-react@7.1.0(react@19.2.3):
+  embla-carousel-react@2.0.1(react-dom@19.2.3(react@19.2.3))(react@19.2.3):
     dependencies:
-      embla-carousel: 7.1.0
+      embla-carousel: 3.0.0
       react: 19.2.3
+      react-dom: 19.2.3(react@19.2.3)
 
-  embla-carousel@7.1.0: {}
+  embla-carousel@3.0.0: {}
 
   enhanced-resolve@5.18.4:
     dependencies:

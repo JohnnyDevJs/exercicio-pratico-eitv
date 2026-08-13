@@ -1,4 +1,4 @@
-import useEmblaCarousel from 'embla-carousel-react'
+import { useEmblaCarousel } from 'embla-carousel-react'
 import { useEffect } from 'react'
 import { cn } from '../lib/utils'
 import { MovieItem } from './movie-item'
@@ -35,7 +35,7 @@ export function MovieRow({
   isActive,
   focusedIndex,
 }: Props) {
-  const [emblaRef, emblaApi] = useEmblaCarousel({
+  const [EmblaCarousel, emblaApi] = useEmblaCarousel({
     dragFree: true,
     containScroll: 'trimSnaps',
   })
@@ -56,10 +56,7 @@ export function MovieRow({
 
 
       <div className={cn( isActive && 'ring-4 ring-transparent rounded-xl flex' )}>
-        <div
-          ref={emblaRef}
-          className='overflow-hidden rounded-xl'
-        >
+        <EmblaCarousel className='overflow-hidden rounded-xl'>
           <div className='flex gap-6 p-6'>
             {items.map((movie, index) => (
               <MovieItem
@@ -70,7 +67,7 @@ export function MovieRow({
               />
             ))}
           </div>
-        </div>
+        </EmblaCarousel>
       </div>
     </section>
   )
