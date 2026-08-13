@@ -1,9 +1,0 @@
-{
-  "id": "com.lg.meuapp",
-  "version": "1.0.0",
-  "vendor": "App LG",
-  "type": "web",
-  "main": "index.html",
-  "title": "Meu App LG",
-  "icon": "icon.png"
-}
