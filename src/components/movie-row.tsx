@@ -40,7 +40,7 @@ export function MovieRow({
     containScroll: 'trimSnaps',
     slidesToScroll: 1,
     loop: false,
-    dragFree: false,
+    dragFree: true,
     skipSnaps: false,
   })
 

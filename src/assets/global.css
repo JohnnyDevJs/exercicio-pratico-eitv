@@ -106,14 +106,13 @@ img {
   border-radius: 16px;
   overflow: hidden;
   background-color: #374151;
-  transform: scale(1);
   transition: transform 200ms ease, box-shadow 200ms ease;
 }
 
 .movie-item__poster--selected {
   background-color: transparent;
-  transform: scale(1.1);
-  box-shadow: 0 0 0 4px #ffffff;
+  transform: scale(1.05);
+  box-shadow: 0 0 0 5px #ffffff;
 }
 
 .movie-item__img {
@@ -124,7 +123,6 @@ img {
 }
 
 .movie-item__poster--selected .movie-item__img {
-  padding: 8px;
   border-radius: 16px;
 }
 
