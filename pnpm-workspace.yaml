@@ -1,8 +1,3 @@
 allowBuilds:
   core-js: false
   esbuild: false
-
-# embla v7 declara peer react <=18, mas o hook usa apenas useRef/useEffect/useCallback
-peerDependencyRules:
-  allowedVersions:
-    'embla-carousel-react>react': '19'
